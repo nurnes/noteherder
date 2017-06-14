@@ -1,6 +1,9 @@
 {
-  "main.css": "static/css/main.9a0fe4f1.css",
-  "main.css.map": "static/css/main.9a0fe4f1.css.map",
-  "main.js": "static/js/main.49be1231.js",
-  "main.js.map": "static/js/main.49be1231.js.map"
+  "main.css": "static/css/main.211e5a42.css",
+  "main.css.map": "static/css/main.211e5a42.css.map",
+  "main.js": "static/js/main.81815f24.js",
+  "main.js.map": "static/js/main.81815f24.js.map",
+  "static\\media\\new-hover.png": "static/media/new-hover.751b2c31.png",
+  "static\\media\\new.png": "static/media/new.2718a414.png",
+  "static\\media\\quill.svg": "static/media/quill.d2ea47fa.svg"
 }
