@@ -1,5 +1,7 @@
 import React from 'react'
+import './General.css'
 import './Sidebar.css'
+
 import quill from './quill.svg'
 import newhover from './new-hover.png'
 import newo from './new.png'

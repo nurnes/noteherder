@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './General.css'
 import './App.css';
 
 import Main from './Main'
