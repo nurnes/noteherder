@@ -1,22 +1,10 @@
 import React, {Component} from 'react'
 
 class LI extends Component{
-    constructor (){
-        super()
-        this.state = {
-            ex: true
-        }
-    }
-
     delete(){
-        let ex = [...this.state.ex]
-        ex = false
-        this.setState({ ex })
+        this.props.remove(this.props.note)
     }
     render() {
-        if(!this.state.ex){
-            return null
-        }
         return (
             <li>
                 <div className="note">

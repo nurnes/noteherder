@@ -20,10 +20,19 @@ class App extends Component {
         notes.unshift(note)
         this.setState({ notes })
     }
+  remove(note){
+        const notes = [...this.state.notes]
+        for(let i=0; i<notes.length; i++){
+          if(notes[i].title === note.title){
+            notes.splice(i, 1)
+          }
+        }
+        this.setState({ notes })
+  }
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} fu={this.fetch}/>
+        <Main notes={this.state.notes} fu={this.fetch} remove={this.remove.bind(this)}/>
       </div>
     );
   }
