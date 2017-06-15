@@ -9,6 +9,7 @@ class NoteForm extends Component {
 
       this.state = {
         note: this.blankNote(),
+        theNote: this.props.theNote
       }
     }
     blankNote = () => {
@@ -31,16 +32,19 @@ class NoteForm extends Component {
         { note }
       )
     }
-
+    componentWillReceiveProps(nextProps){
+      let theNote = {...nextProps.theNote}
+      this.setState({note: theNote })
+    }
     render (){
         return(
             <div className="NoteForm">
               <form onSubmit={this.handleSubmit.bind(this)}>
               <p>
-                <input type="text" name="title" placeholder="Title your note" ref={(input) => this.titleField = input} onChange={this.handleChanges} value={this.state.note.title} />
+                <input type="text" name="title" placeholder="Title your note" onChange={this.handleChanges} value={this.state.note.title} />
               </p>
               <p>
-                <textarea name="body" cols="30" rows="10" placeholder="Just start typing..." ref={(input) => this.noteField = input} onChange={this.handleChanges} value={this.state.note.body} ></textarea>
+                <textarea name="body" cols="30" rows="10" placeholder="Just start typing..." onChange={this.handleChanges} value={this.state.note.body} ></textarea>
               </p>
               <p>
                 <input type="submit" name="send" value="Submit" />

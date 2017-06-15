@@ -10,7 +10,7 @@ class NoteList extends Component {
           <div className="NoteList">
             <h3>Notes</h3>
             <ul id="notes">
-              {this.props.notes.map((note, i) => <LI key={i} note={note} remove={this.props.remove} />)}
+              {this.props.notes.map((note, i) => <LI key={i} note={note} remove={this.props.remove} highlight={this.props.highlight} />)}
           </ul>
         </div>
       )

@@ -11,8 +11,8 @@ const Main = (props) => {
     return (
         <div className="Main">
             <Sidebar />
-            <NoteList notes={props.notes} remove={props.remove}/>
-            <NoteForm notes={props.notes} fu={props.fu}/>
+            <NoteList notes={props.notes} remove={props.remove} highlight={props.highlight}/>
+            <NoteForm notes={props.notes} fu={props.fu} theNote={props.theNote}/>
         </div>
     )
 }

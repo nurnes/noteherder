@@ -4,9 +4,12 @@ class LI extends Component{
     delete(){
         this.props.remove(this.props.note)
     }
+    highlight(){
+        this.props.highlight(this.props.note)
+    }
     render() {
         return (
-            <li>
+            <li onClick={this.highlight.bind(this)}>
                 <div className="note">
                     <div className="note-title">
                         {this.props.note.title}
