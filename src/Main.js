@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React from 'react'
 
 import NoteForm from './NoteForm';
 import Sidebar from './Sidebar'
@@ -8,11 +8,6 @@ import './General.css'
 import './Main.css'
 
 const Main = (props) => {
-    {/*fetch(note){
-        const notes = [...this.state.notes]
-        notes.unshift(note)
-        this.setState({ notes })
-    }*/}
     return (
         <div className="Main">
             <Sidebar />

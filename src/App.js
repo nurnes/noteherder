@@ -15,7 +15,7 @@ class App extends Component {
           {title: "Laws of physics", body: "Cambrian explosion radio telescope, circumnavigated citizens of distant epochs brain is the seed of intelligence two ghostly white figures in coveralls and helmets are soflty dancing galaxies inconspicuous motes of rock and gas"}]
         }
   }
-  fetch(note){
+  fetch = (note) => {
         const notes = [...this.state.notes]
         notes.unshift(note)
         this.setState({ notes })
@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} fu={this.fetch.bind(this)}/>
+        <Main notes={this.state.notes} fu={this.fetch}/>
       </div>
     );
   }
