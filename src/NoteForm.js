@@ -6,7 +6,7 @@ import './NoteForm.css'
 class NoteForm extends Component {
     handleSubmit(ev){
       ev.preventDefault()
-      this.props.callBack({title: this.titleField.value, body: this.noteField.value})
+      this.props.fu({title: this.titleField.value, body: this.noteField.value})
       ev.currentTarget.reset()
     }
 

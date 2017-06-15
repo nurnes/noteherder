@@ -7,27 +7,19 @@ import NoteList from './NoteList'
 import './General.css'
 import './Main.css'
 
-class Main extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            notes: this.props.notes
-        }
-    }
-    fetch(note){
+const Main = (props) => {
+    {/*fetch(note){
         const notes = [...this.state.notes]
         notes.unshift(note)
         this.setState({ notes })
-    }
-    render(){
-        return (
-            <div className="Main">
-                <Sidebar />
-                <NoteList notes={this.state.notes}/>
-                <NoteForm callBack={this.fetch.bind(this)}/>
-            </div>
-        )
-    }
+    }*/}
+    return (
+        <div className="Main">
+            <Sidebar />
+            <NoteList notes={props.notes}/>
+            <NoteForm notes={props.notes} fu={props.fu}/>
+        </div>
+    )
 }
 
 export default Main
