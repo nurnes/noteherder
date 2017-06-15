@@ -9,7 +9,6 @@ class NoteForm extends Component {
 
       this.state = {
         note: this.blankNote(),
-        theNote: this.props.theNote
       }
     }
     blankNote = () => {
@@ -20,7 +19,6 @@ class NoteForm extends Component {
     }
     handleSubmit(ev){
       ev.preventDefault()
-      this.props.fu({title: this.state.note.title, body: this.state.note.body})
       this.props.fu(this.state.note)
       ev.currentTarget.reset()
     }
