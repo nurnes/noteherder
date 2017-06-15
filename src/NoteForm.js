@@ -1,22 +1,12 @@
 import React, {Component} from 'react'
 import './General.css'
 import './NoteForm.css'
-import Note from './Note'
 
 
 class NoteForm extends Component {
-    constructor() {
-      super()
-      this.state = {
-        notes: []
-      }
-    }
-
     handleSubmit(ev){
       ev.preventDefault()
-      const notes = [...this.state.notes]
-      notes.push(`${this.titleField.value} | ${this.noteField.value}`)
-      this.setState({ notes })
+      this.props.callBack({title: this.titleField.value, body: this.noteField.value})
       ev.currentTarget.reset()
     }
 
@@ -33,9 +23,7 @@ class NoteForm extends Component {
               <p>
                 <input type="submit" name="send" value="Submit" />
               </p>
-            </form>
-
-            {this.state.notes.reverse().map(curr => <Note text={curr}/>)}
+            </form>   
           </div>
         )
     }
