@@ -42,7 +42,6 @@ class App extends Component {
 
     setCurrentNoteId = (noteId) => {
     this.setState({ currentNoteId: noteId })
-    // TODO: Make this work
   }
 
 
@@ -53,7 +52,6 @@ class App extends Component {
   }
 
   saveNote = (note) => {
-    console.log(note.id)
     if (!note.id) {
       note.id = `note-${Date.now()}`
     }
@@ -84,12 +82,13 @@ class App extends Component {
     const actions = {
       saveNote: this.saveNote,
       removeNote: this.removeNote,
-      setCurrentNoteId: this.setCurrentNoteId
+      setCurrentNoteId: this.setCurrentNoteId,
+      saveAndNew: this.saveAndNew,
     }
     return (
       <div>
         <SignOut signOut={this.signOut} />
-        <Main notes={this.state.notes} {...actions} currentNoteId={this.state.currentNoteId}/>
+        <Main notes={this.state.notes} {...actions} currentNoteId={this.state.currentNoteId} saveNote={this.saveNote}/>
       </div>
     )
   }
