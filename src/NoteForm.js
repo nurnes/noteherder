@@ -11,6 +11,20 @@ class NoteForm extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    // TODO: ???
+    this.search({...nextProps.notes}, nextProps.currentNoteId)
+  }
+
+  search(obj, query){
+    for (var key in obj) {
+        var value = obj[key];
+        if (value.id === query) {
+            this.setState({note: value}, () => this.props.saveNote(value))
+        }
+    }
+  }
+
   blankNote = () => {
     return {
       id: null,
@@ -31,6 +45,10 @@ class NoteForm extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault()
     this.setState({ note: this.blankNote() })
+  }
+
+  handleRemove = (ev) => {
+    this.props.removeNote(this.state.note)
   }
 
   render() {
@@ -55,6 +73,9 @@ class NoteForm extends Component {
             ></textarea>
           </p>
           <button type="submit">Save and new</button>
+          <button onClick={this.handleRemove}>
+            <i className="fa fa-trash-o"></i>
+          </button>
         </form>
       </div>
     )

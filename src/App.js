@@ -16,6 +16,10 @@ class App extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+         this.setState({theNote: nextProps.theNote});
+    }
+
   componentWillMount() {
     auth.onAuthStateChanged(
       (user) => {
@@ -36,7 +40,20 @@ class App extends Component {
     )
   }
 
+    setCurrentNoteId = (noteId) => {
+    this.setState({ currentNoteId: noteId })
+    // TODO: Make this work
+  }
+
+
+  removeNote = (note) => {
+    const notes = {...this.state.notes}
+    notes[note.id] = null
+    this.setState({ notes })
+  }
+
   saveNote = (note) => {
+    console.log(note.id)
     if (!note.id) {
       note.id = `note-${Date.now()}`
     }
@@ -64,10 +81,15 @@ class App extends Component {
   }
 
   renderMain = () => {
+    const actions = {
+      saveNote: this.saveNote,
+      removeNote: this.removeNote,
+      setCurrentNoteId: this.setCurrentNoteId
+    }
     return (
       <div>
         <SignOut signOut={this.signOut} />
-        <Main notes={this.state.notes} saveNote={this.saveNote} />
+        <Main notes={this.state.notes} {...actions} currentNoteId={this.state.currentNoteId}/>
       </div>
     )
   }
