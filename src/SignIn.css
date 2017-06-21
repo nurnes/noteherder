@@ -6,10 +6,44 @@
   display: block;
   margin: 0 auto;
   padding: 20px;
-  -webkit-transition: background 0.2s;
-  -o-transition: background 0.2s;
-  transition: background 0.2s;
+  
   font-family: 'helvetica neue', sans-serif;
   font-size: 20px;
   font-weight: 200;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    margin-top: -10px;
+    background-color: rgba(200,50,50,0.25);
+    transition: top .3s, background-color .3s;
+    top: 80px;
+}
+
+#gitbutton:hover {
+  position:relative;
+  background-color: darkslategray;
+  cursor: pointer;
+    
+}
+
+.si {
+  display: flex;
+}
+
+#googlebutton:hover {
+  position:relative;
+  background-color: darkolivegreen;
+  cursor: pointer;
+}
+
+h1{
+  text-align: center;
+  position: relative;
+}
+
+h3{
+  text-align: center;
+  position: relative;
 }
