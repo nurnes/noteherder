@@ -4,6 +4,7 @@ import './App.css'
 import Main from './Main'
 import SignIn from './SignIn'
 import base, { auth } from './base'
+import {Switch, NavLink, Route, Redirect} from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -114,7 +115,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn /> }
+        <Switch>
+          <Route path='/notes' render={() => this.renderMain()}/>
+          <Route path='/sign-in' component={SignIn} />
+          <Route render={() => <Redirect to="/notes" />} />
+        </Switch>
+        {/*{ this.signedIn() ? this.renderMain() : <SignIn /> }*/}
       </div>
     );
   }
