@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
+import RichTextEditor from 'react-rte';
 
 import './NoteForm.css'
 
 class NoteForm extends Component {
+  state = {
+    value: RichTextEditor.createEmptyValue()
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id) {
       const newId = nextProps.match.params.id
@@ -11,12 +16,18 @@ class NoteForm extends Component {
         const note = nextProps.notes[newId]
         if (note) {
           this.props.setCurrentNote(note)
+          this.setState({value: RichTextEditor.createValueFromString(note.body, 'html')})
         }
       }
     } else if (this.props.currentNote.id) {
       this.props.resetCurrentNote()
     }
   }
+  onChange = (value) => {
+    const note = {...this.props.currentNote}
+    note.body = value.toString('html')
+    this.setState({ value }, () => this.props.saveNote(note))
+  };
 
   handleChanges = (ev) => {
     const note = {...this.props.currentNote}
@@ -32,7 +43,6 @@ class NoteForm extends Component {
     return (
       <div className="NoteForm">
         <form>
-          <p>
             <input
               type="text"
               name="title"
@@ -40,15 +50,10 @@ class NoteForm extends Component {
               onChange={this.handleChanges}
               value={this.props.currentNote.title}
             />
-          </p>
-          <p>
-            <textarea
-              name="body"
-              placeholder="Just start typing..."
-              onChange={this.handleChanges}
-              value={this.props.currentNote.body}
-            ></textarea>
-          </p>
+          <RichTextEditor
+              value={this.state.value}
+              onChange={this.onChange}
+            />
           <button
             type="button"
             onClick={this.handleRemove}

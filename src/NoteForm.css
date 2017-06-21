@@ -26,7 +26,7 @@
   padding: 1rem;
 }
 .NoteForm form {
-  margin: 0 auto;
+  margin: 0;
   max-width: 80rem;
 }
 input[name="title"] {
@@ -36,6 +36,7 @@ input[name="title"] {
   color: #008BF8;
   font-weight: 400;
   width: 100%;
+  padding: 10px 0;
 }
 input[name="title"] {
   outline: none;
@@ -45,4 +46,17 @@ textarea {
   width: 100%;
   height: calc(100vh - 140px);
   font-size: 1.3em;
+}
+
+.Dropdown__root___3ALmx {
+  display: none;
+}
+
+.ButtonGroup__root___3lEAn{
+  position: relative;
+  bottom: 75px;
+}
+
+.public-DraftEditor-content {
+  height: calc(70vh - 12px) !important;
 }
